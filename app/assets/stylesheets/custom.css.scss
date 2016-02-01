@@ -5,3 +5,13 @@
 .center {
   text-align: center;
 }
+
+.jumbotron {
+  background-image: asset-url('martini.jpg');
+  background-size: cover;
+  height: 500px;
+}
+
+footer {
+  margin-top: 45px;
+}
