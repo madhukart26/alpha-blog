@@ -3,7 +3,9 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+  #  @articles = Article.all
+  #render :json => Article.all
+  @articles = Article.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
@@ -12,7 +14,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user = User.last
+    @article.user = User.first
 
     if @article.save
         flash[:success] = "Your Article is succesfully created"
